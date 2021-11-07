@@ -27,7 +27,7 @@ namespace CommandAPI.Data
                     CommandLine="dotnet ef database update", 
                     Platform=".Net Core EF"},
                 new Command{
-                    Id=2, HowTo="List active migrations", 
+                    Id=2, HowTo="AC List active migrations", 
                     CommandLine="dotnet ef migrations list", 
                     Platform=".Net Core EF"}
             };
@@ -63,7 +63,7 @@ namespace CommandAPI.Data
                 cmd = new Command
                 {
                     Id = 2,
-                    HowTo = "List active migrations",
+                    HowTo = "AC List active migrations",
                     CommandLine = "dotnet ef migrations list",
                     Platform = ".Net Core EF"
                 };
