@@ -19,15 +19,15 @@ namespace CommandAPI.Data
             var commands = new List<Command>
             {
                 new Command{
-                    Id=0, HowTo="How to genrate a migration", 
+                    Id=0, HowTo="MOCK DATA How to genrate a migration", 
                     CommandLine="dotnet ef migrations add <Name of Migration>", 
                     Platform=".Net Core EF"},
                 new Command{
-                    Id=1, HowTo="Run Migrations", 
+                    Id=1, HowTo="MOCK DATA Run Migrations", 
                     CommandLine="dotnet ef database update", 
                     Platform=".Net Core EF"},
                 new Command{
-                    Id=2, HowTo="AC List active migrations", 
+                    Id=2, HowTo="MOCK DATA List active migrations", 
                     CommandLine="dotnet ef migrations list", 
                     Platform=".Net Core EF"}
             };
@@ -43,7 +43,7 @@ namespace CommandAPI.Data
                 cmd = new Command
                 {
                     Id = 0,
-                    HowTo = "How to genrate a migration",
+                    HowTo = "MOCK DATA How to genrate a migration",
                     CommandLine = "dotnet ef migrations add <Name of Migration>",
                     Platform = ".Net Core EF"
                 };
@@ -53,7 +53,7 @@ namespace CommandAPI.Data
                 cmd = new Command
                 {
                     Id = 1,
-                    HowTo = "Run Migrations",
+                    HowTo = "MOCK DATA Run Migrations",
                     CommandLine = "dotnet ef database update",
                     Platform = ".Net Core EF"
                 };
@@ -63,7 +63,7 @@ namespace CommandAPI.Data
                 cmd = new Command
                 {
                     Id = 2,
-                    HowTo = "AC List active migrations",
+                    HowTo = "MOCK DATA List active migrations",
                     CommandLine = "dotnet ef migrations list",
                     Platform = ".Net Core EF"
                 };
