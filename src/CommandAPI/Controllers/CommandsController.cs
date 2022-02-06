@@ -99,20 +99,6 @@ namespace CommandAPI.Controllers
             _repository.SaveChanges();
             return NoContent();
         }
-    }
-    
-    [Route("[controller]")]
-    [ApiController]
-    public class HealthController : ControllerBase
-    {        
-        public HealthController()
-        {            
-        }
-
-        [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-        {
-         return Ok(new string[] {"Health Good", "Mock response"});
-        }
-    }
+    }    
+    //End of Controller
 }
