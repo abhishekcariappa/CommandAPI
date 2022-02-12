@@ -31,7 +31,8 @@ namespace CommandAPI.Controllers
                         DBHealth = "NO records in database";
                         return NotFound(new string[] {APIHealth, DBHealth});
                     }
-                return Ok(new string[] {APIHealth, "Database Health"});   
+                DBHealth = "Database Health Good";    
+                return Ok(new string[] {APIHealth, DBHealth});   
             }
             catch
             {
