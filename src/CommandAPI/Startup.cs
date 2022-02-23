@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Npgsql;
+using System.Data.SqlClient;
+using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
 using Newtonsoft.Json.Serialization;
 
@@ -27,21 +29,25 @@ namespace CommandAPI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            var builder = new NpgsqlConnectionStringBuilder();
-            builder.ConnectionString =
-            Configuration.GetConnectionString("PostgreSqlConnection");
-            builder.Username = Configuration["UserID"];
+            ///var builder = new NpgsqlConnectionStringBuilder();
+            var builder = new SqlConnectionStringBuilder();
+            builder.ConnectionString = Configuration.GetConnectionString("SqlConnection");//For SQL server
+            ///builder.Username = Configuration["UserID"];
             builder.Password = Configuration["Password"];
-            services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
-                //(Configuration.GetConnectionString("PostgreSqlConnection")));
+            builder.UserID = Configuration["UserID"];
+            services.AddDbContext<CommandContext>(opt => opt.UseSqlServer(builder.ConnectionString));
+            ///services.AddDbContext<CommandContext>(opt => opt.UseNpgsql(builder.ConnectionString));
+            ///(Configuration.GetConnectionString("PostgreSqlConnection")));
             services.AddControllers().AddNewtonsoftJson(s =>
                 {
-                s.SerializerSettings.ContractResolver = new
-                CamelCasePropertyNamesContractResolver();
+                    s.SerializerSettings.ContractResolver = new
+                    CamelCasePropertyNamesContractResolver();
                 });
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-           // services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
+            //// services.AddScoped<ICommandAPIRepo, MockCommandAPIRepo>();
             services.AddScoped<ICommandAPIRepo, SqlCommandAPIRepo>();
+            //services.AddMvc().
+            //SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
