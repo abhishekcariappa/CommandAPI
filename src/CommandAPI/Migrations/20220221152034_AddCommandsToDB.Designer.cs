@@ -3,14 +3,16 @@ using CommandAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CommandAPI.Migrations
 {
     [DbContext(typeof(CommandContext))]
-    partial class CommandContextModelSnapshot : ModelSnapshot
+    [Migration("20220221152034_AddCommandsToDB")]
+    partial class AddCommandsToDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
